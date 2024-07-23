@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center">Vendor Profile</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        {% if vendor.profile_picture %}
+                            <img src="{{ vendor.profile_picture.url }}" class="rounded-circle" alt="Profile Picture" width="150" height="150">
+                        {% else %}
+                            <img src="https://via.placeholder.com/150" class="rounded-circle" alt="Profile Picture">
+                        {% endif %}
+                    </div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ vendor.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{ vendor.address }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>{{ vendor.phone_number }}</td>
+                        </tr>
+                        <tr>
+                            <th>Website</th>
+                            <td>
+                                {% if vendor.website %}
+                                    <a href="{{ vendor.website }}" target="_blank">{{ vendor.website }}</a>
+                                {% else %}
+                                    N/A
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

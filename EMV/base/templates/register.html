@@ -1,0 +1,47 @@
+<!-- templates/register.html -->
+{% extends 'base.html' %}
+{% load form_tags %}
+
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="my-4 text-center">Register</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ user_form.username.label_tag }}
+                {{ user_form.username|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ user_form.email.label_tag }}
+                {{ user_form.email|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ user_form.password.label_tag }}
+                {{ user_form.password|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ profile_form.name.label_tag }}
+                {{ profile_form.name|add_class:"form-control" }}
+            </div>
+            
+            <div class="form-group">
+                {{ profile_form.address.label_tag }}
+                {{ profile_form.address|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ profile_form.phone_number.label_tag }}
+                {{ profile_form.phone_number|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ profile_form.profile_picture.label_tag }}
+                {{ profile_form.profile_picture|add_class:"form-control-file" }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
